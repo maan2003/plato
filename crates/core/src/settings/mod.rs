@@ -7,7 +7,7 @@ use std::path::PathBuf;
 use std::collections::{BTreeMap, HashMap};
 use fxhash::FxHashSet;
 use serde::{Serialize, Deserialize};
-use crate::metadata::{SortMethod, TextAlign};
+// use crate::metadata::{SortMethod, TextAlign};
 use crate::frontlight::LightLevels;
 use crate::color::{Color, BLACK};
 use crate::device::CURRENT_DEVICE;
@@ -30,7 +30,7 @@ pub const DEFAULT_LINE_HEIGHT: f32 = 1.2;
 // Default font family name.
 pub const DEFAULT_FONT_FAMILY: &str = "Libertinus Serif";
 // Default text alignment.
-pub const DEFAULT_TEXT_ALIGN: TextAlign = TextAlign::Left;
+// pub const DEFAULT_TEXT_ALIGN: TextAlign = TextAlign::Left;
 pub const HYPHEN_PENALTY: i32 = 50;
 pub const STRETCH_TOLERANCE: f32 = 1.26;
 
@@ -140,7 +140,7 @@ pub struct LibrarySettings {
     pub name: String,
     pub path: PathBuf,
     pub mode: LibraryMode,
-    pub sort_method: SortMethod,
+    // pub sort_method: SortMethod,
     pub first_column: FirstColumn,
     pub second_column: SecondColumn,
     pub thumbnail_previews: bool,
@@ -155,7 +155,7 @@ impl Default for LibrarySettings {
             path: env::current_dir().ok()
                       .unwrap_or_else(|| PathBuf::from("/")),
             mode: LibraryMode::Database,
-            sort_method: SortMethod::Opened,
+            // sort_method: SortMethod::Opened,
             first_column: FirstColumn::TitleAndAuthor,
             second_column: SecondColumn::Progress,
             thumbnail_previews: true,
@@ -279,7 +279,7 @@ pub enum SecondColumn {
 pub struct Hook {
     pub path: PathBuf,
     pub program: PathBuf,
-    pub sort_method: Option<SortMethod>,
+    // pub sort_method: Option<SortMethod>,
     pub first_column: Option<FirstColumn>,
     pub second_column: Option<SecondColumn>,
 }
@@ -289,7 +289,7 @@ impl Default for Hook {
         Hook {
             path: PathBuf::default(),
             program: PathBuf::default(),
-            sort_method: None,
+            // sort_method: None,
             first_column: None,
             second_column: None,
         }
@@ -338,7 +338,7 @@ pub struct ReaderSettings {
     pub font_size: f32,
     pub min_font_size: f32,
     pub max_font_size: f32,
-    pub text_align: TextAlign,
+    // pub text_align: TextAlign,
     pub margin_width: i32,
     pub min_margin_width: i32,
     pub max_margin_width: i32,
@@ -453,7 +453,7 @@ impl Default for ReaderSettings {
             font_size: DEFAULT_FONT_SIZE,
             min_font_size: DEFAULT_FONT_SIZE / 2.0,
             max_font_size: 3.0 * DEFAULT_FONT_SIZE / 2.0,
-            text_align: DEFAULT_TEXT_ALIGN,
+            // text_align: DEFAULT_TEXT_ALIGN,
             margin_width: DEFAULT_MARGIN_WIDTH,
             min_margin_width: DEFAULT_MARGIN_WIDTH.saturating_sub(8),
             max_margin_width: DEFAULT_MARGIN_WIDTH.saturating_add(2),
@@ -501,7 +501,7 @@ impl Default for Settings {
                         Hook {
                             path: PathBuf::from("Articles"),
                             program: PathBuf::from("bin/article_fetcher/article_fetcher"),
-                            sort_method: Some(SortMethod::Added),
+                            // sort_method: Some(SortMethod::Added),
                             first_column: Some(FirstColumn::TitleAndAuthor),
                             second_column: Some(SecondColumn::Progress),
                         }
